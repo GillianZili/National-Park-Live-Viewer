@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">National Park Live Viewer App</string>
+    <string name="hello_tag">Hello World</string>
+    <string name="signature_text">From Jetpack</string>
+
+    <string-array name="park_name">
+        <item>Yellowstone National Park</item>
+        <item>Grand Canyon National Park</item>
+        <item>Yosemite National Park</item>
+        <item>Zion National Park</item>
+        <item>Rocky Mountain National Park</item>
+        <item>Great Smoky Mountains National Park</item>
+        <item>Glacier National Park</item>
+        <item>Arches National Park</item>
+        <item>Everglades National Park</item>
+        <item>Acadia National Park</item>
+    </string-array>
+
+    <string-array name="state_name">
+        <item>Wyoming/Montana/Idaho</item>
+        <item>Arizona</item>
+        <item>California</item>
+        <item>Utah</item>
+        <item>Colorado</item>
+        <item>Tennessee/North Carolina</item>
+        <item>Montana</item>
+        <item>Utah</item>
+        <item>Florida</item>
+        <item>Maine</item>
+    </string-array>
 </resources>
