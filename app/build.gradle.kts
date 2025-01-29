@@ -58,12 +58,14 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    // Retrofit 依赖
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0'")
-    // Gson 转换器（如果 API 使用 JSON 格式）
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    // OkHttp 依赖
-    implementation ("com.squareup.okhttp3:okhttp:4.9.0")
+    //retrofit dependency
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")  // 如果你使用 Gson 解析
+    implementation ("com.squareup.retrofit2:adapter-rxjava2:2.9.0")  // 如果你使用 RxJava2 (如果你想使用同步请求，可以不需要这个)
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
+    // OkHttp dependencies
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
     implementation ("androidx.constraintlayout:constraintlayout:2.0.4")
 }
