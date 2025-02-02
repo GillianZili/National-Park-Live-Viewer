@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">National Park Live Viewer App</string>
+    <string name="app_name">ParkCam</string>
     <string name="hello_tag">Hello World</string>
     <string name="signature_text">From Jetpack</string>
 
