@@ -1,4 +1,4 @@
-package com.example.nationalparkliveviewerapp.ui.theme
+package com.example.nationalparkliveviewerapp.network
 
 data class Webcam (
     val title:String,

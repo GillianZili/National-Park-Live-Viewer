@@ -1,4 +1,4 @@
-package com.example.nationalparkliveviewerapp
+package com.example.nationalparkliveviewerapp.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import com.example.nationalparkliveviewerapp.R
 
 
 class WebViewActivity : AppCompatActivity() {

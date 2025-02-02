@@ -1,4 +1,4 @@
-package com.example.nationalparkliveviewerapp.ui.theme
+package com.example.nationalparkliveviewerapp.network
 
 data class ParkLocation(
     val states:String,

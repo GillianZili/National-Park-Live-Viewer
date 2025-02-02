@@ -1,12 +1,13 @@
-package com.example.nationalparkliveviewerapp
+package com.example.nationalparkliveviewerapp.ui
 
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nationalparkliveviewerapp.ui.theme.ApiService
-import com.example.nationalparkliveviewerapp.ui.theme.ParkBody
+import com.example.nationalparkliveviewerapp.R
+import com.example.nationalparkliveviewerapp.network.ApiService
+import com.example.nationalparkliveviewerapp.network.ParkBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback

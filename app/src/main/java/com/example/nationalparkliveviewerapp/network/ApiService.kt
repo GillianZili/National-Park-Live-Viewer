@@ -1,4 +1,4 @@
-package com.example.nationalparkliveviewerapp.ui.theme
+package com.example.nationalparkliveviewerapp.network
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
