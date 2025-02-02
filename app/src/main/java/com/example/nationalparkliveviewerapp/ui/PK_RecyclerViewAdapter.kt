@@ -37,7 +37,6 @@ class PK_RecyclerViewAdapter public constructor(
         holder.tvName.text = parkModels[position].parkName
         holder.tvLocation.text = parkModels[position].parkLocation
         holder.title.text=parkModels[position].title
-//        holder.imageView.setImageResource(parkModels[position].image)
         Glide.with(holder.itemView.context)
             .load(parkModels[position].imageUrl)
             .placeholder(R.drawable.not_found)
@@ -57,7 +56,6 @@ class PK_RecyclerViewAdapter public constructor(
     }
 
     override fun getItemCount(): Int {
-        //how many items do you have in total
         return parkModels.size
     }
 

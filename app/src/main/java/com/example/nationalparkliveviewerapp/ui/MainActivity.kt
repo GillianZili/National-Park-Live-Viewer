@@ -20,13 +20,13 @@ import java.io.InputStreamReader
 
 class MainActivity : ComponentActivity() {
     val parkModels = ArrayList<ParkModel>()
-    private var apiKey: String =""
+    private var apiKey: String = ""
     private val TAG: String = "Check_response"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        try{
+        try {
             val inputStream = assets.open("api_key.json")
             val reader = BufferedReader(InputStreamReader(inputStream))
             val stringBuilder = StringBuilder()
@@ -37,9 +37,10 @@ class MainActivity : ComponentActivity() {
             val jsonObject = JSONObject(stringBuilder.toString())
             apiKey = jsonObject.getString("API_KEY")
             Log.i(TAG, "get api_key succeeded")
-        }catch (e:Exception) {
+        } catch (e: Exception) {
             Log.i(TAG, "get api_key failed: ${e.message}")
         }
+
         setContentView(R.layout.activity_main)
         val recyclerView: RecyclerView = findViewById(R.id.mRecyclerView)
         getParkInfo(recyclerView)
@@ -51,10 +52,9 @@ class MainActivity : ComponentActivity() {
     private fun getParkInfo(recyclerView: RecyclerView) {
         Log.i(TAG, "getParkInfo called")
         try {
-            // Code that may throw an exception
             val api = Retrofit.Builder()
                 .baseUrl("https://developer.nps.gov/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create()) // 自动解析 JSON
+                .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(ApiService::class.java)
 
@@ -84,7 +84,7 @@ class MainActivity : ComponentActivity() {
                                         }
                                         park.parkName = parkLocation.fullName
                                         park.parkLocation = parkLocation.states
-                                        park.title=cam.title
+                                        park.title = cam.title
                                         park.imageUrl = parkImage
                                         park.webcamUrl = cam.url
                                         Log.i(TAG, "Add park: ${cam.toString()}")
@@ -96,9 +96,6 @@ class MainActivity : ComponentActivity() {
 
                             }
                             Log.i(TAG, "webcam num = : ${parkModels.size}")
-                            //                        for(park in parkModels){
-                            //                            Log.i(TAG, "Final park = : ${park.parkName}")
-                            //                        }
                             recyclerView.adapter?.notifyDataSetChanged()
                         }
                     } else {
@@ -111,10 +108,7 @@ class MainActivity : ComponentActivity() {
                 }
             })
         } catch (e: Exception) {
-            // Code for handling the exception
             Log.i(TAG, "what ${e.message}")
         }
-
-        Log.i(TAG, "api ok 1")
     }
 }
