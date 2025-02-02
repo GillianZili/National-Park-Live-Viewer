@@ -14,7 +14,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.BufferedReader
-import java.io.IOException
 import java.io.InputStreamReader
 
 
@@ -27,7 +26,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         try{
-            val inputStream = assets.open("api_keys.json")
+            val inputStream = assets.open("api_key.json")
             val reader = BufferedReader(InputStreamReader(inputStream))
             val stringBuilder = StringBuilder()
             var line: String?
