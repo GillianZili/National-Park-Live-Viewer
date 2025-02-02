@@ -1,12 +1,20 @@
 package com.example.nationalparkliveviewerapp
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
+import org.w3c.dom.Text
 
 class PK_RecyclerViewAdapter public constructor(
     val context: Context,
@@ -30,7 +38,24 @@ class PK_RecyclerViewAdapter public constructor(
         //assigning values to the views we created in the recycler_view_row layout file
         holder.tvName.text = parkModels[position].parkName
         holder.tvLocation.text = parkModels[position].parkLocation
-        holder.imageView.setImageResource(parkModels[position].image)
+        holder.title.text=parkModels[position].title
+//        holder.imageView.setImageResource(parkModels[position].image)
+        Glide.with(holder.itemView.context)
+            .load(parkModels[position].imageUrl)
+            .placeholder(R.drawable.not_found)
+            .error(R.drawable.waterfall)
+            .apply(RequestOptions.bitmapTransform(RoundedCorners(30)))
+            .into(holder.imageView)
+
+
+        holder.itemView.setOnClickListener{
+            val park = parkModels[position]
+            val intent = Intent(holder.itemView.context, WebViewActivity::class.java)
+            intent.putExtra("URL", parkModels[position].webcamUrl)
+            holder.itemView.context.startActivity(intent)
+//            Toast.makeText(holder.itemView.context, "Clicked on: ${park.parkName}", Toast.LENGTH_SHORT).show()
+            Log.d("ButtonClick", "Button clicked!")
+        }
     }
 
     override fun getItemCount(): Int {
@@ -45,5 +70,6 @@ class PK_RecyclerViewAdapter public constructor(
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val tvName: TextView = itemView.findViewById(R.id.parkName)
         val tvLocation: TextView = itemView.findViewById(R.id.parkLocation)
+        val title: TextView = itemView.findViewById(R.id.Title)
     }
 }
